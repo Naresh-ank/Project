@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>Add Home Policy</title>
+</head>
+<body bgcolor="#deb887">
+{% include 'home/title.html' %}
+<br><br>
+{% include 'admin/admin_menu.html' %}
+<br><br><br><br>
+<form action="{% url 'save_health_update' %}" method="post">
+    {% csrf_token %}
+{% for x in health_data %}
+<table align="center" border="0">
+        <tr><th colspan="2" height="50"><font size="5" face="Algerian" color="#dc143c">Add Health Policy</font></th></tr>
+    <tr><th>Policy Type : </th><th><input type="text" value="Home" name="policy_type" required></th></tr>
+{#    <tr><th>Policy Id : </th><th><input type="number" value="{{ x.policy_id }}" name="policy_id" required></th></tr>#}
+    <tr><th>Policy Name : </th><th><input type="text" value="{{ x.policy_name }}" name="policy_name" required></th></tr>
+    <tr><th>Description : </th><th><textarea name="description" value={{ x.description }} required></textarea> </th></tr>
+    <tr><th>Time Duration : </th><th><input type="number" value="{{ x.time_duration }}"  name="time_duration" required></th></tr>
+    <tr><th>Amount : </th><th><input type="number" value="{{ x.amount }}" name="amount" required></th></tr>
+    <tr><th>Premium Amount : </th><th><input type="number" value="{{ x.premium_amount }}" name="premium_amount" required></th></tr>
+    <tr><th>Premium Number : </th><th><input type="number" value="{{ x.premium_number }}" name="premium_number" required></th></tr>
+    <tr><th>Coverage Amount : </th><th><input type="number" value="{{ x.coverage_amount }}" name="coverage_amount" required></th></tr>
+    <tr><th>Marital Status : </th><th><input type="text" value="{{ x.marital_status }}" name="marital_status" required></th></tr>
+    <tr><th>Number Of Family : </th><th><input type="number" value="{{ x.no_of_family }}" name="number_of_family" required></th></tr>
+    <tr><th height="80" colspan="2"><button type="submit">Add </button> </th> </tr>
+    <tr><th colspan="2">
+        {% for message in messages %}
+               <center><span style="font-size: large; color: green; font-family:'Lucida Calligraphy' ; ">
+                        {{ message }}
+                </span></center>
+        {% endfor %}
+    </th></tr>
+
+    </table>
+{% endfor %}
+</form>
+</body>
+</html>

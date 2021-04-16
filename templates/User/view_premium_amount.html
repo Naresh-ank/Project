@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body bgcolor="#deb887">
+{% include 'home/title.html' %}
+<br><br>
+{% include 'User/user_menu1.html' %}
+<br><br><br><br>
+{% include 'User/user_menu.html' %}
+<center><span style="font-size: x-large; font-family: 'Lucida Calligraphy'; color: #dc143c; ">Policy Holder Premium Amount Details</span></center>
+<br><br>
+{% for x in qs %}
+<table align="center">
+
+    <tr><th>Policy Name :</th><th><input type="text" value="{{ x.policy_name }}" readonly></th></tr>
+    <tr><th>Premium Amount :</th><th><input type="number" value="{{ x.premium_amount }}" readonly></th></tr>
+    <tr><th>Policy Duration :</th><th><input type="text" value="{{ x.policy_duration }}" readonly></th></tr>
+</table>
+{% endfor %}
+</body>
+</html>

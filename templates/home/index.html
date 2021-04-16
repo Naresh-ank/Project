@@ -1,0 +1,37 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+{% load staticfiles %}
+</head><br>
+<body  background="{% static 'images/stu.jpg' %}" bgcolor="#deb887">
+<style>
+        body{
+            text-align: center;
+            background-size: cover;
+            background-repeat:no-repeat;
+        }
+    </style>
+<br><br>
+{% include 'home/title.html' %}
+<br><br>
+<table align="center" border="0" >
+    <tr><th><img src="{% static 'images/insurance.jpg' %}" width="350" height="250"></th></tr>
+    <tr><th width="350" height="50" bgcolor="#6b8e23"><a href="{% url 'admin_login' %}">Admin Login</a> </th></tr>
+    <tr><th width="250" height="50" bgcolor="orange"><a href="{% url 'official_login' %}">Official Login</a> </th></tr>
+    <tr><th width="250" height="50" bgcolor="#ff69b4"><a href="{% url 'user_login' %}">User Login</a> </th></tr>
+
+</table>
+<br><br>
+<center>
+{% if message %}
+    <span style="font-size: large; color: White; font-family: 'Algerian'; ">
+    {{ message }}
+    </span>
+
+{% endif %}
+</center>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body bgcolor="#708090">
+{% include 'home/title.html' %}
+<br><br>
+{% include 'User/user_menu1.html' %}
+<br><br><br><br>
+{% include 'User/user_menu.html' %}
+{% for x in qs1 %}
+<table align="center">
+    <tr><th colspan="2" height="100"><span style="font-size: x-large; font-family: 'Lucida Calligraphy'; color: #dc143c; ">Policy Details</span></th></tr>
+    <tr><th>Name :</th><th><input type="text" value="{{ x.name }}" readonly></th></tr>
+    <tr><th>Policy Type :</th><th><input type="text" value="{{ x.policy_type }}" readonly></th></tr>
+    <tr><th>Policy Name :</th><th><input type="text" value="{{ x.policy_name }}" readonly></th></tr>
+    <tr><th>Data Of Birth :</th><th><input type="text" value="{{ x.date_of_birth }}" readonly></th></tr>
+    <tr><th>Policy Duration :</th><th><input type="text" value="{{ x.policy_duration }}" readonly></th></tr>
+    <tr><th>Policy Taking Date :</th><th><input type="text" value="{{ x.policy_taking_date }}" readonly></th></tr>
+    <tr><th>Premium Amount :</th><th><input type="number" value="{{ x.premium_amount }}" readonly></th></tr>
+    <tr><th>Beneficial Amount :</th><th><input type="number" value="{{ x.benificial_amount }}" readonly></th></tr>
+
+</table>
+{% endfor %}
+</body>
+</html>

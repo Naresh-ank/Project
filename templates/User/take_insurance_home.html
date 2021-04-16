@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body bgcolor="#708090">
+{% include 'home/title.html' %}
+<br><br>
+{% include 'User/user_menu1.html' %}
+<br><br><br><br>
+{% include 'User/user_menu.html' %}
+<form action="{% url 'policy_login' %}" method="post">
+    {% csrf_token %}
+<table align="center">
+    <tr><th colspan="2" height="100"><span style="font-size: x-large; font-family: 'Lucida Calligraphy'; color: #dc143c; ">Apply For Policy</span></th></tr>
+    <tr>
+        <th>Select Policy Type : </th>
+        <th>
+        <select name="policy_type">
+            <option>Home</option>
+            <option>Life</option>
+            <option>Health</option>
+            <option>Car</option>
+        </select>
+        </th>
+    </tr>
+    <tr><th colspan="2" height="100"><button type="submit">Login</button> </th></tr>
+</table>
+</form>
+</body>
+</html>

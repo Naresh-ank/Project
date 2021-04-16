@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body bgcolor="#ffb6c1">
+{% include 'home/title.html' %}
+<br><br>
+{% include 'User/user_menu1.html' %}
+<br><br><br><br>
+{% include 'User/user_menu.html' %}
+<form action="{% url 'pay' %}" method="post">
+    {% csrf_token %}
+<table align="center">
+    <tr><th colspan="2" height="50">Policy Details</th></tr>
+    <tr><th>Policy Holder Name :</th><th><input type="text" name="policy_holder_name"></th></tr>
+    <tr><th>Policy Payment Date :</th><th><input type="date" name="policy_payment_date" ></th></tr>
+    <tr><th>Premium Amount :</th><th><input type="number" name="premium_amount"></th></tr>
+    <tr><th>Paid Amount :</th><th><input type="number" name="paid_amount"></th></tr>
+    <tr><th>Policy Number :</th><th><input type="number" name="policy_number"></th></tr>
+    <tr><th>DD No :</th><th><input type="number" name="dd_no"></th></tr>
+    <tr><th colspan="2" height="50"><button type="submit">Pay</button> </th> </tr>
+</table>
+</form>
+</body>
+</html>

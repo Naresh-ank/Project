@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body bgcolor="#b8860b">
+{% include 'home/title.html' %}
+<br><br>
+{% include 'User/user_menu1.html' %}
+<br><br><br><br>
+{% include 'User/user_menu.html' %}
+
+<form action="{% url 'select_policy_name' %}" method="post">
+    {% csrf_token %}
+<table align="center">
+    <tr>
+        <th>
+        <select name="policy_name">
+            {% for x in policy_name %}
+            <option>{{ x }}</option>
+            {% endfor %}
+        </select>
+        </th>
+    <th colspan="2"><button type="submit">Take Policy</button> </th></tr>
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>Add Home Policy</title>
+</head>
+<body bgcolor="#deb887">
+{% include 'home/title.html' %}
+<br><br>
+{% include 'admin/admin_menu.html' %}
+<br><br><br><br>
+<form action="{% url 'save_car_update' %}" method="post">
+    {% csrf_token %}
+{% for x in car_data %}
+<table align="center" border="0">
+        <tr><th colspan="2" height="50"><font size="5" face="Algerian" color="#dc143c">Add Car Policy</font></th></tr>
+    <tr><th>Policy Type : </th><th><input type="text" value="Home" name="policy_type" required></th></tr>
+{#    <tr><th>Policy Id : </th><th><input type="number" value="{{ x.policy_id }}" name="policy_id" required></th></tr>#}
+    <tr><th>Policy Name : </th><th><input type="text" value="{{ x.policy_name }}" name="policy_name" required></th></tr>
+    <tr><th>Description : </th><th><textarea name="description" value="{{ x.description }}" required></textarea> </th></tr>
+    <tr><th>Time Duration : </th><th><input type="number" value="{{ x.time_duration }}" name="time_duration" required></th></tr>
+    <tr><th>Amount : </th><th><input type="number" value="{{ x.amount }}" name="amount" required></th></tr>
+    <tr><th>Premium Amount : </th><th><input type="number" value="{{ x.premium_amount }}" name="premium_amount" required></th></tr>
+    <tr><th>Premium Number : </th><th><input type="number" value="{{ x.premium_number }}" name="premium_number" required></th></tr>
+    <tr><th>Rate Of Interest : </th><th><input type="number" value="{{ x.rate_of_interest }}" name="rate_of_interest" required></th></tr>
+    <tr><th>Rules : </th><th><textarea name="rules" value="{{ x.rules }}" required></textarea> </th></tr>
+    <tr><th>Benificial Amount : </th><th><input type="number" value="{{ x.benificial_amount }}" name="beneficial_amount" required></th></tr>
+    <tr><th>Type : </th><th><input type="text"  name="type" value="{{ x.type }}" required></th></tr>
+    <tr><th>Vehicle No. : </th><th><input type="number" value="{{ x.vehicle_no }}" name="vehicle_no" required></th></tr>
+    <tr><th>Company : </th><th><input type="text" value="{{ x.company }}" name="company" required></th></tr>
+    <tr><th>Model : </th><th><input type="text" value="{{ x.model }}" name="model" required></th></tr>
+    <tr><th height="80" colspan="2"><button type="submit">Add </button> </th> </tr>
+    <tr><th colspan="2">
+        {% for message in messages %}
+               <center><span style="font-size: large; color: green; font-family:'Lucida Calligraphy' ; ">
+                        {{ message }}
+                </span></center>
+        {% endfor %}
+    </th></tr>
+    </table>
+{% endfor %}
+</form>
+</body>
+</html>

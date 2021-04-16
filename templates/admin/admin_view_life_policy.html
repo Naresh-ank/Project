@@ -1,0 +1,50 @@
+<html>
+<head>
+    <title>Admin Life</title>
+</head>
+<body bgcolor="#deb887">
+{% include 'home/title.html' %}
+<br><br>
+{% include 'admin/admin_menu.html' %}
+<br><br><br><br>
+
+<table align="center" border="2"  >
+        <tr bgcolor="orange">
+{#            <th width="100">Id</th>#}
+            <th width="100">Name</th>
+            <th width="100">Description</th>
+            <th width="200">Time duration</th>
+            <th width="100">Amount</th>
+            <th width="100">Premium_amount</th>
+            <th width="100">Premium_number</th>
+            <th width="250">Rate of Interest</th>
+            <th width="100">Rules</th>
+            <th width="250">Benificial Amount</th>
+            <th width="150">Accidental Benifit</th>
+            <th width="100">Update</th>
+            <th width="100">Delete</th>
+        </tr>
+    {% for x in object_list %}
+        <tr>
+{#            <th width="100">{{ x.policy_id }}</th>#}
+            <th width="100">{{ x.policy_name }}</th>
+            <th width="200">{{ x.description }}</th>
+            <th width="100">{{ x.time_duration }}</th>
+            <th width="100">{{ x.amount }}</th>
+            <th width="100">{{ x.premium_amount }}</th>
+            <th width="250">{{ x.premium_number }}</th>
+            <th width="100">{{ x.rate_of_interest }}</th>
+            <th width="250">{{ x.rules }}</th>
+            <th width="250">{{ x.benificial_amount }}</th>
+            <th width="200">{{ x.accidential_benifit }}</th>
+            <th width="100">
+                    <a href="{% url 'update_life_policy' %}?policy_name={{ x.policy_name }}">Yes</a>
+            </th>
+                <th width="100">
+                    <a href="{% url 'delete_life_policy' %}?policy_name={{ x.policy_name }}">Yes</a>
+                </th>
+        </tr>
+    {% endfor %}
+    </table>
+</body>
+</html>

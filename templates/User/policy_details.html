@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body bgcolor="#bdb76b">
+{% include 'home/title.html' %}
+<br><br>
+{% include 'User/user_menu1.html' %}
+<br><br><br><br>
+{% include 'User/user_menu.html' %}
+<form action="{% url 'view_policy_details' %}" method="post">
+    {% csrf_token %}
+<table align="center">
+    <tr><th colspan="2" height="100"><span style="font-size: x-large; font-family: 'Lucida Calligraphy'; color: #dc143c; ">To View Policy Details</span></th></tr>
+    <tr>
+        <th>Policy Holder Name : </th>
+        <th><input type="text" name="policy_holder_name"></th>
+    </tr>
+    <tr>
+        <th>Policy Id : </th>
+        <th><input type="number" name="policy_id"></th>
+    </tr>
+    <tr><th colspan="2" height="100"><button type="submit">View</button> </th></tr>
+</table>
+</form>
+<center><font size="5" color="#dc143c">{{ message }}</font> </center>
+</body>
+</html>
